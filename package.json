@@ -10,7 +10,8 @@
     "express": "^4.17.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-scripts": "3.4.0"
+    "react-scripts": "3.4.0",
+    "body-parser": "latest"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -32,5 +33,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "cookie-parser": "^1.4.4"
   }
 }
