@@ -33,10 +33,7 @@ app.use(bodyParser.json());
 
 
 //========== Routes ==========//
-let volunController = require('./controllers/volunController');
-app.post('volunteer/create', volunController.createVolun, (req, res) => {
-	res.status(200).send(res.locals.data);
-});
+
 app.use('/volunteer', volunRouter);
 app.get('/ping', function (req, res) {
 	return res.send('pong');
