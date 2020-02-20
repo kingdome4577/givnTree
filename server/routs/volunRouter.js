@@ -7,11 +7,11 @@ router.post('/create', volunController.createVolun, (req, res) => {
 	return res.status(200).send(JSON.stringify(res.locals.data));
 });
 
-router.delete('/:id',volunController.deleteVolun, (req, res) => {
+router.delete('/:u_id',volunController.deleteVolun, (req, res) => {
 	return res.status(200).send(JSON.stringify(res.locals.data));
 });
 
-router.get('/getAList', volunController.getAListofVoluns, (req, res) => {
+router.get('/get/:filterElement?/:filterId?/:returnElements?', volunController.getVoluns, (req, res) => {
 	return res.status(200).send(JSON.stringify(res.locals.data));
 });
 
