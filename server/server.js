@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 
 
+
 //============== DB Connection ======//
 /*
 * @ create DB Connection here
@@ -18,7 +19,7 @@ const path = require('path');
 * todo: add controllers here
 * todo: add routers here
  */
-const volunRoutes = require(path.join(__dirname, './routs/volunRouter'));
+const volunRouter = require('./routs/volunRouter');
 
 
 
@@ -32,7 +33,11 @@ app.use(bodyParser.json());
 
 
 //========== Routes ==========//
-app.use('/volunteer', volunRoutes);
+let volunController = require('./controllers/volunController');
+app.post('volunteer/create', volunController.createVolun, (req, res) => {
+	res.status(200).send(res.locals.data);
+});
+app.use('/volunteer', volunRouter);
 app.get('/ping', function (req, res) {
 	return res.send('pong');
 });
@@ -54,6 +59,10 @@ app.use((err, req, res, next) => {
 
 
 //============= Start Server ==========//
-app.listen(process.env.PORT || 8080);
+app.listen(process.env.PORT || 8080, () => {
+	console.log(`the sever is listening to 8080`)
+});
+
 
 module.exports = app;
+
