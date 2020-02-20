@@ -15,9 +15,10 @@ const path = require('path');
 
 //============== Internal Dependency Requirements ======//
 /*
-* @ add controllers here
-* @ add routers here
+* todo: add controllers here
+* todo: add routers here
  */
+const volunRoutes = require(path.join(__dirname, './routs/volunRouter'));
 
 
 
@@ -31,6 +32,7 @@ app.use(bodyParser.json());
 
 
 //========== Routes ==========//
+app.use('/volunteer', volunRoutes);
 app.get('/ping', function (req, res) {
 	return res.send('pong');
 });
