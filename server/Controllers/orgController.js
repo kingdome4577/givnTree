@@ -2,7 +2,7 @@ const db = require('pg');
 
 const updateOrg = (req, res, next) => {
     const {id, name, description, email, password} = req.body;
-    const query = 'UPDATE FROM "Organizations"'
+    const query = 'UPDATE "Organizations"'
 }
 
 const deleteOrg = (req, res, next) => {

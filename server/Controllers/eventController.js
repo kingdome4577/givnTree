@@ -2,7 +2,7 @@ const db = require('pg');
 
 const updateEvent = (req, res, next) => {
   const {id, name, organization, description, start_time, end_time} = req.body;
-  const query = 'UPDATE FROM "Events" '
+  const query = 'UPDATE "Events" '
 }
 
 const deleteEvent = (req, res, next) => {
