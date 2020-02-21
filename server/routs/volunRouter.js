@@ -15,8 +15,8 @@ router.get('/get/:filterElement?/:filterId?/:returnElements?', volunController.g
 	return res.status(200).send(JSON.stringify(res.locals.data));
 });
 
-router.post('/:id', volunController.updateVolun, (req, res) => {
-	return res.status(200).send(JSON.stringify(res.locals.data));
-});
+// router.post('/:id', volunController.updateVolun, (req, res) => {
+// 	return res.status(200).send(JSON.stringify(res.locals.data));
+// });
 
 module.exports = router;

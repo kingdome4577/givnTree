@@ -16,14 +16,14 @@ const createEvent = (req, res, next) => {
 	}
 }
 
-const updateEvent = (req, res, next) => {
-  const {id, name, organization, start_time, end_time, description,} = req.body;
-  const query = 'UPDATE "Events" '
-}
+// const updateEvent = (req, res, next) => {
+//   const {id, name, organization, start_time, end_time, description,} = req.body;
+//   const query = 'UPDATE "Events" '
+// }
 
 const deleteEvent = (req, res, next) => {
   const {id} = req.body;
-  const query = 'DELETE FROM "Events" WHERE _id = $1';
+  const query = 'DELETE FROM events WHERE _id = $1';
   const arr = [id];
 
   db.query(query, arr, err => {
@@ -36,7 +36,7 @@ const deleteEvent = (req, res, next) => {
 }
 
 const getEvents = (req, res, next) => {
-  const query = 'SELECT * FROM "Events" ORDER_BY _id';
+  const query = 'SELECT * FROM events ORDER_BY _id';
     db.query(query, (err, message) => {
         if (err) {
             return next(err);
@@ -48,7 +48,7 @@ const getEvents = (req, res, next) => {
 }
 
 module.exports = {
-  updateEvent,
+  // updateEvent,
   deleteEvent,
   getEvents,
   createEvent

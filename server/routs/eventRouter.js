@@ -15,8 +15,8 @@ router.get('/getEventList', eventController.getEvents, (req, res) => {
 	return res.status(200).send(JSON.stringify(res.locals.data));
 });
 
-router.post('/:id', eventController.updateEvent, (req, res) => {
-	return res.status(200).send(JSON.stringify(res.locals.data));
-});
+// router.post('/:id', eventController.updateEvent, (req, res) => {
+// 	return res.status(200).send(JSON.stringify(res.locals.data));
+// });
 
 module.exports = router;

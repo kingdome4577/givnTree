@@ -16,14 +16,14 @@ const createOrg = (req, res, next) => {
 	}
 }
 
-const updateOrg = (req, res, next) => {
-    const {id, name, description, email, password} = req.body;
-    const query = 'UPDATE "Organizations"'
-}
+// const updateOrg = (req, res, next) => {
+//     const {id, name, description, email, password} = req.body;
+//     const query = 'UPDATE "Organizations"'
+// }
 
 const deleteOrg = (req, res, next) => {
   const {id} = req.body;
-  const query = 'DELETE FROM "Organizations" WHERE _id = $1';
+  const query = 'DELETE FROM organizations WHERE _id = $1';
   const arr = [id];
 
   db.query(query, arr, err => {
@@ -36,7 +36,7 @@ const deleteOrg = (req, res, next) => {
 }
 
 const getOrgs = (req, res, next) => {
-  const query = 'SELECT * FROM "Organizations" ORDER_BY _id';
+  const query = 'SELECT * FROM organizations ORDER_BY _id';
     db.query(query, (err, message) => {
         if (err) {
             return next(err);
@@ -49,7 +49,7 @@ const getOrgs = (req, res, next) => {
 
 module.exports = {
   deleteOrg,
-  updateOrg,
+//   updateOrg,
   createOrg,
   getOrgs
 }

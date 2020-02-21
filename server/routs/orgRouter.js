@@ -16,8 +16,8 @@ router.get('/getOrgList', orgController.getOrgs, (req, res) => {
 	return res.status(200).send(JSON.stringify(res.locals.data));
 });
 
-router.post('/:id', orgController.updateOrg, (req, res) => {
-	return res.status(200).send(JSON.stringify(res.locals.data));
-});
+// router.post('/:id', orgController.updateOrg, (req, res) => {
+// 	return res.status(200).send(JSON.stringify(res.locals.data));
+// });
 
 module.exports = router;
