@@ -14,10 +14,14 @@ const cookieParser = require('cookie-parser');
 const path = require('path');
 
 //============== Internal Dependency Requirements ======//
-/*
-* @ add controllers here
-* @ add routers here
- */
+// * @ add controllers here
+const authController = require('./Controllers/authController');
+const orgController = require('./Controllers/orgController');
+const volunteerController = require('./Controllers/volunteerContoller');
+const subController = require('./Controllers/subController');
+const eventController = require('./Controllers/eventController');
+const slotController = require('./Controllers/slotController');
+// * @ add routers here
 
 
 
