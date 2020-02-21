@@ -12,7 +12,7 @@ router.delete('/:id',orgController.deleteOrg, (req, res) => {
 	return res.status(200).send(JSON.stringify(res.locals.data));
 });
 
-router.get('/getOrgList', orgController.getOrgs, (req, res) => {
+router.get('/getOrgs', orgController.getOrgs, (req, res) => {
 	return res.status(200).send(JSON.stringify(res.locals.data));
 });
 

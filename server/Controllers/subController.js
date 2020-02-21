@@ -1,6 +1,6 @@
-const db = require('./node_modules/pg');
+const db = require('../models/dbIndex');
 
-const createSub = (req, res, next) => {
+const createSub = async (req, res, next) => {
   try{
 		console.log('IM HERE')
 		const queryText = 'INSERT INTO subscriptions VALUES(DEFAULT, $1, $2, $3, $4,  DEFAULT) RETURNING u_id';

@@ -23,7 +23,6 @@ const path = require('path');
  */
 const volunRouter = require('./routs/volunRouter');
 const orgRouter = require('./routs/orgRouter');
-const authRouter = require('./routs/authRouter');
 const subRouter = require('./routs/subRouter');
 const eventRouter = require('./routs/eventRouter');
 const slotRouter = require('./routs/slotRouter');

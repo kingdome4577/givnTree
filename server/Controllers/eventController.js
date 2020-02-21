@@ -1,6 +1,6 @@
-const db = require('./node_modules/pg');
+const db = require('../models/dbIndex');
 
-const createEvent = (req, res, next) => {
+const createEvent = async (req, res, next) => {
   try{
 		console.log('IM HERE')
 		const queryText = 'INSERT INTO events VALUES(DEFAULT, $1, $2, $3,  DEFAULT) RETURNING u_id';
