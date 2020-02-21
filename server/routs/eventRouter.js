@@ -11,7 +11,7 @@ router.delete('/:id',eventController.deleteEvent, (req, res) => {
 	return res.status(200).send(JSON.stringify(res.locals.data));
 });
 
-router.get('/getEventList', eventController.getListofEvents, (req, res) => {
+router.get('/getEventList', eventController.getEvents, (req, res) => {
 	return res.status(200).send(JSON.stringify(res.locals.data));
 });
 

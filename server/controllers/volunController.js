@@ -41,7 +41,18 @@ volunController.deleteVolun = async (req, res, next) => {
 		return next(error);
 	}
 };
-volunController.getAListofVoluns = async (req, res, next) => {
+
+volunController.getAListofVoluns = (req, res, next) => {
+	const query = 'SELECT * FROM volunteers ORDER_BY _id';
+		db.query(query, (err, message) => {
+				if (err) {
+						return next(err);
+				} else {
+						res.locals.message = message.rows;
+						return next()
+				}
+		});
 }
+
 
 module.exports = volunController;
