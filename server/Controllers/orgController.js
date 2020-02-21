@@ -1,4 +1,4 @@
-const db = require('pg');
+const db = require('./node_modules/pg');
 
 const updateOrg = (req, res, next) => {
     const {id, name, description, email, password} = req.body;
@@ -21,5 +21,6 @@ const deleteOrg = (req, res, next) => {
 
 module.exports = {
   deleteOrg,
-  updateOrg
+  updateOrg,
+  createOrg,
 }

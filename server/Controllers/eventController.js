@@ -1,4 +1,4 @@
-const db = require('pg');
+const db = require('./node_modules/pg');
 
 const updateEvent = (req, res, next) => {
   const {id, name, organization, description, start_time, end_time} = req.body;

@@ -1,4 +1,4 @@
-const db = require('pg');
+const db = require('./node_modules/pg');
 
 const updateSlot = (req, res, next) => {
   const {id, event, start_time, end_time} = req.body;
@@ -21,5 +21,7 @@ const deleteSlot = (req, res, next) => {
 
 module.exports = {
   updateSlot,
-  deleteSlot
+  deleteSlot,
+  getListofSlots,
+  createSlot
 }

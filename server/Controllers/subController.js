@@ -1,4 +1,4 @@
-const db = require('pg');
+const db = require('./node_modules/pg');
 
 const updateSub = (req, res, next) => {
   const {id, volunteer, slot} = req.body;
@@ -22,5 +22,7 @@ const deleteSub = (req, res, next) => {
 
 module.exports = {
   updateSub,
-  deleteSub
+  deleteSub,
+  getListofSubs,
+  createSub
 }

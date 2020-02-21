@@ -16,18 +16,18 @@ const path = require('path');
 
 //============== Internal Dependency Requirements ======//
 // * @ add controllers here
-const authController = require('./Controllers/authController');
-const orgController = require('./Controllers/orgController');
-const volunteerController = require('./Controllers/volunteerContoller');
-const subController = require('./Controllers/subController');
-const eventController = require('./Controllers/eventController');
-const slotController = require('./Controllers/slotController');
 // * @ add routers here
 /*
 * todo: add controllers here
 * todo: add routers here
  */
 const volunRouter = require('./routs/volunRouter');
+const orgRouter = require('./routs/orgRouter');
+const authRouter = require('./routs/authRouter');
+const subRouter = require('./routs/subRouter');
+const eventRouter = require('./routs/eventRouter');
+const slotRouter = require('./routs/slotRouter');
+
 
 
 
@@ -43,6 +43,9 @@ app.use(bodyParser.json());
 //========== Routes ==========//
 
 app.use('/volunteer', volunRouter);
+app.use('/organization', orgRouter);
+app.use('/events', eventRouter);
+
 app.get('/ping', function (req, res) {
 	return res.send('pong');
 });
