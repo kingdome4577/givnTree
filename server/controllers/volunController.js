@@ -4,12 +4,12 @@ const volunController = {};
 
 volunController.createVolun = async (req, res, next) => {
 	try{
-		console.log('IM HERE')
+		console.log('IM HERE');
 		const queryText = 'INSERT INTO volunteers VALUES(DEFAULT, $1, $2, $3, DEFAULT) RETURNING u_id';
 		const { name, password, email } = req.body;
+		console.log(name, password, email);
 		const { rows } = await db.query(queryText, [name, password, email]);
-		console.log(rows[0]);
-		//todo: this should return the u_id of the created user
+		//todo: this should return the u_id of the created user OK
 		res.locals.data = rows[0];
 		return next();
 	} catch (error) {
@@ -29,9 +29,9 @@ volunController.updateVolun = async (req, res, next) => {
 }
 volunController.deleteVolun = async (req, res, next) => {
 	try{
-		const {id} = req.params;
-		const queryText = 'DELETE FROM public.volunteers WHERE id = $1';
-		const { rows } = await db.query(queryText, [id]);
+		const {u_id} = req.params;
+		const queryText = 'DELETE FROM public.volunteers WHERE u_id = $1';
+		const { rows } = await db.query(queryText, [u_id]);
 		console.log(rows[0]);
 		res.locals.data = rows[0];
 		return next();
@@ -42,16 +42,36 @@ volunController.deleteVolun = async (req, res, next) => {
 	}
 };
 
-volunController.getAListofVoluns = (req, res, next) => {
-	const query = 'SELECT * FROM volunteers ORDER_BY _id';
-		db.query(query, (err, message) => {
-				if (err) {
-						return next(err);
-				} else {
-						res.locals.message = message.rows;
-						return next()
-				}
-		});
+//
+
+volunController.getVoluns = async (req, res, next) => {
+	try{
+		const {filterElement, filterId, returnElements} = req.params;
+		if (filterElement && filterId) {
+			console.log('filtered get route')
+			const queryText = 'SELECT * FROM volunteers WHERE $1 = $2;';
+			if (returnElements) {
+				console.log('also return modified get route')
+				const queryTextAdd = returnElements.split('&').join(', ');
+				queryText.replace('*', queryTextAdd);
+			}
+			
+			const { rows } = await db.query(queryText, [filterElement, filterId]);
+			console.log(rows);
+			res.locals.data = rows[0];
+			return next();
+		}
+		console.log('plain get route');
+		const queryText = 'SELECT * FROM volunteers ORDER BY name;';
+		const { rows } = await db.query(queryText, []);
+		console.log(rows);
+		res.locals.data = [...rows];
+		return next();
+	}
+	catch(error){
+		await db.query( 'ROLLBACK' );
+		return next(error);
+	}
 }
 
 
